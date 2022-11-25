@@ -25,9 +25,9 @@ class TitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.playButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
-        )
+        binding.playButton.setOnClickListener{buttonView: View ->
+            buttonView.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

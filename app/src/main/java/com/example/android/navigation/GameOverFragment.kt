@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -36,8 +37,11 @@ class GameOverFragment : Fragment() {
         )
 
         binding.tryAgainButton.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_gameOverFragment2_to_gameFragment)
+            view.findNavController().navigate(GameOverFragmentDirections.actionGameOverFragment2ToGameFragment())
         }
+        val args = GameOverFragmentArgs.fromBundle(arguments!!)
+        Toast.makeText(context, "args.numQuestions = ${args.numQuestions}, args.numCorrect = ${args.numCorrect}", Toast.LENGTH_SHORT).show()
+
         return binding.root
     }
 }
